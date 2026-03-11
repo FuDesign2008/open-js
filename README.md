@@ -28,10 +28,10 @@ https://cdn.jsdelivr.net/gh/FuDesign2008/open-js@<tag>/<filename>
 ### install.sh（youdaonote-cli 一键安装）
 
 ```bash
-bash -c "$(curl -fsSL https://cdn.jsdelivr.net/gh/FuDesign2008/open-js@main/install.sh)"
+curl -fsSL https://cdn.jsdelivr.net/gh/FuDesign2008/open-js@main/install.sh | bash
 ```
 
-或：`curl -fsSL https://cdn.jsdelivr.net/gh/FuDesign2008/open-js@main/install.sh | bash`
+或：`bash -c "$(curl -fsSL https://cdn.jsdelivr.net/gh/FuDesign2008/open-js@main/install.sh)"`
 
 > **生产环境务必使用版本锁定地址**，避免 CDN 缓存刷新延迟导致版本不一致。
 

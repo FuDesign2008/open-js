@@ -1,10 +1,13 @@
 #!/usr/bin/env bash
 # youdaonote-cli 一键安装脚本
-# 用法: bash -c "$(curl -fsSL https://cdn.jsdelivr.net/gh/FuDesign2008/open-js@main/install.sh)"
-# 或: curl -fsSL https://cdn.jsdelivr.net/gh/FuDesign2008/open-js@main/install.sh | bash
+# 用法（推荐，避免父 shell set -x 时打印脚本内容）:
+#   curl -fsSL https://cdn.jsdelivr.net/gh/FuDesign2008/open-js@main/install.sh | bash
+# 或: bash -c "$(curl -fsSL https://cdn.jsdelivr.net/gh/FuDesign2008/open-js@main/install.sh)"
 # 仅支持 macOS 和 Linux
 
 set -e
+# 禁用 xtrace/verbose，避免脚本内部命令被逐行打印
+{ set +x +v; } 2>/dev/null || true
 
 # 版本与下载地址（发版时更新）
 VERSION="1.1.0-0a3cb33c"
@@ -65,13 +68,13 @@ get_download_url() {
   printf '%s/%s-%s.tar' "${BASE_URL}" "${platform}" "${VERSION}"
 }
 
-# 下载文件
+# 下载文件（显示详细进度：百分比、速度、剩余时间）
 download() {
   local file="$1" url="$2"
   if has curl; then
-    curl -fsSL -o "${file}" "${url}" || abort "下载失败: ${url}"
+    curl -fL -o "${file}" "${url}" || abort "下载失败: ${url}"
   elif has wget; then
-    wget -q -O "${file}" "${url}" || abort "下载失败: ${url}"
+    wget -O "${file}" "${url}" || abort "下载失败: ${url}"
   else
     abort "需要 curl 或 wget，请先安装"
   fi
@@ -81,8 +84,8 @@ usage() {
   cat <<EOF
 youdaonote-cli 安装脚本
 
-用法: bash -c "\$(curl -fsSL https://cdn.jsdelivr.net/gh/FuDesign2008/open-js@main/install.sh)"
-  或: curl -fsSL https://cdn.jsdelivr.net/gh/FuDesign2008/open-js@main/install.sh | bash
+用法: curl -fsSL https://cdn.jsdelivr.net/gh/FuDesign2008/open-js@main/install.sh | bash
+  或: bash -c "\$(curl -fsSL https://cdn.jsdelivr.net/gh/FuDesign2008/open-js@main/install.sh)"
 
 选项:
   -b, --bin-dir DIR   安装目录 [默认: /usr/local/bin]
