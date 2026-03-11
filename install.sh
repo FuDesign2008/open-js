@@ -8,7 +8,7 @@ set -e
 
 # 版本与下载地址（发版时更新）
 VERSION="1.1.0-0a3cb33c"
-BASE_URL="https://artifact.lx.netease.com/download/youdaonote-cli"
+BASE_URL="https://github.com/FuDesign2008/open-js/releases/download/youdaonote-cli-v1.1.0"
 
 # 颜色输出
 BOLD="$(tput bold 2>/dev/null || printf '')"

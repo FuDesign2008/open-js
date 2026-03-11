@@ -94,6 +94,15 @@ access-control-allow-origin: *
 
 - **ynote-claw**：`openclaw/skills/ynote-clip/SKILL.md` Step 3 中的 CDN URL
 
+### youdaonote-cli install.sh 发版
+
+install.sh 从 [GitHub Releases](https://github.com/FuDesign2008/open-js/releases) 下载 tar 包，发版流程：
+
+1. 更新 `install.sh` 中的 `VERSION` 和 `BASE_URL`（Release tag 格式：`youdaonote-cli-vX.Y.Z`）
+2. 提交并推送 install.sh
+3. 在 [Releases](https://github.com/FuDesign2008/open-js/releases/new) 创建 Release，Tag 与 BASE_URL 一致
+4. 上传 6 个平台的 tar：darwin-arm64、darwin-x64、linux-arm64、linux-x64、windows-arm64、windows-x64
+
 ## jsDelivr 缓存说明
 
 | URL 类型 | 缓存策略 | 说明 |
