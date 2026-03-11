@@ -7,6 +7,7 @@
 | 文件 | 说明 | 大小 |
 |------|------|------|
 | `collect-window.js` | 有道云笔记网页收藏 SDK（UMD） | ~31KB |
+| `install.sh` | youdaonote-cli 一键安装脚本 | ~5KB |
 
 ## CDN 地址
 
@@ -23,6 +24,14 @@ https://cdn.jsdelivr.net/gh/FuDesign2008/open-js@<tag>/<filename>
 | 版本锁定（推荐） | `https://cdn.jsdelivr.net/gh/FuDesign2008/open-js@v1.0.0/collect-window.js` |
 | 最新 tag | `https://cdn.jsdelivr.net/gh/FuDesign2008/open-js@latest/collect-window.js` |
 | main 分支 | `https://cdn.jsdelivr.net/gh/FuDesign2008/open-js@main/collect-window.js` |
+
+### install.sh（youdaonote-cli 一键安装）
+
+```bash
+bash -c "$(curl -fsSL https://cdn.jsdelivr.net/gh/FuDesign2008/open-js@main/install.sh)"
+```
+
+或：`curl -fsSL https://cdn.jsdelivr.net/gh/FuDesign2008/open-js@main/install.sh | bash`
 
 > **生产环境务必使用版本锁定地址**，避免 CDN 缓存刷新延迟导致版本不一致。
 
