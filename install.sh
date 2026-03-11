@@ -10,8 +10,8 @@ set -e
 { set +x +v; } 2>/dev/null || true
 
 # 版本与下载地址（发版时更新）
-VERSION="1.1.0-0a3cb33c"
-BASE_URL="https://github.com/FuDesign2008/open-js/releases/download/youdaonote-cli-v1.1.0"
+VERSION="1.1.1-52916f89"
+BASE_URL="https://github.com/FuDesign2008/open-js/releases/download/youdaonote-cli-v1.1.1"
 
 # 颜色输出
 BOLD="$(tput bold 2>/dev/null || printf '')"
