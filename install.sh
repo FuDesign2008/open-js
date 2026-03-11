@@ -151,7 +151,7 @@ if test_writeable "${BIN_DIR}"; then
   chmod +x "${BIN_DIR}/youdaonote"
 else
   warn "需要 sudo 写入 ${BIN_DIR}"
-  sudo tar xf "${TARFILE}" -C "${TMPDIR}"
+  tar xf "${TARFILE}" -C "${TMPDIR}"
   sudo cp -f "${TMPDIR}/${PLATFORM}/youdaonote" "${BIN_DIR}/youdaonote"
   sudo chmod +x "${BIN_DIR}/youdaonote"
 fi
