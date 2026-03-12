@@ -137,7 +137,18 @@ if [[ ! -d "${BIN_DIR}" ]]; then
 fi
 
 # 下载并安装
-TMPDIR="$(mktemp -d)"
+# 使用 $HOME/.cache 而非 /tmp，避免 Snap 版 curl 沙箱无法写入 /tmp 导致下载失败
+# 详见: https://github.com/boukendesho/curl-snap/issues/1
+if [[ -n "${HOME}" ]] && [[ -d "${HOME}" ]]; then
+  INSTALL_TMP="${XDG_CACHE_HOME:-$HOME/.cache}/youdaonote-cli-install-$$"
+  if mkdir -p "${INSTALL_TMP}" 2>/dev/null; then
+    TMPDIR="${INSTALL_TMP}"
+  else
+    TMPDIR="$(mktemp -d)"
+  fi
+else
+  TMPDIR="$(mktemp -d)"
+fi
 trap 'rm -rf "${TMPDIR}"' EXIT
 TARFILE="${TMPDIR}/youdaonote.tar"
 
